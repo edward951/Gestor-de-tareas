@@ -31,13 +31,13 @@ class TaskCompleted extends Mailable
     public function build()
     {
         return $this->subject('Tarea Completada')
-                    ->from('from@example.com')
-                    ->to($this->task->user->email)
-                    ->view('emails.task_completed')
-                    ->with([
-                        'taskTitle' => $this->task->title,
-                        'taskDescription' => $this->task->description,
-                        'completionDate' => $this->task->updated_at->format('d/m/Y'),
-                    ]);
+            ->from('from@example.com')
+            ->to($this->task->user->email)
+            ->view('emails.task_completed')
+            ->with([
+                'taskTitle' => $this->task->title,
+                'taskDescription' => $this->task->description,
+                'completionDate' => $this->task->updated_at->format('d/m/Y'),
+            ]);
     }
 }

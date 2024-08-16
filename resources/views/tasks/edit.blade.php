@@ -19,7 +19,8 @@
             @method('PUT')
             <div class="form-group">
                 <label for="titulo">Título</label>
-                <input type="text" name="titulo" id="titulo" class="form-control" value="{{ old('titulo', $tarea->titulo) }}" required>
+                <input type="text" name="titulo" id="titulo" class="form-control"
+                    value="{{ old('titulo', $tarea->titulo) }}" required>
             </div>
             <div class="form-group">
                 <label for="descripcion">Descripción</label>
@@ -27,7 +28,8 @@
             </div>
             <div class="form-group">
                 <label for="fecha_vencimiento">Fecha de Vencimiento</label>
-                <input type="date" name="fecha_vencimiento" id="fecha_vencimiento" class="form-control" value="{{ old('fecha_vencimiento', $tarea->fecha_vencimiento) }}" required>
+                <input type="date" name="fecha_vencimiento" id="fecha_vencimiento" class="form-control"
+                    value="{{ old('fecha_vencimiento', $tarea->fecha_vencimiento) }}" required>
             </div>
             <button type="submit" class="btn btn-primary">Actualizar Tarea</button>
         </form>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>Tarea Completada</title>
@@ -8,9 +9,11 @@
             0% {
                 background-position: 0% 0%;
             }
+
             50% {
                 background-position: 100% 100%;
             }
+
             100% {
                 background-position: 0% 0%;
             }
@@ -69,6 +72,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
@@ -88,4 +92,5 @@
         </div>
     </div>
 </body>
+
 </html>

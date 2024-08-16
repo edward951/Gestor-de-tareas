@@ -51,12 +51,12 @@ class TaskController extends Controller
             'expiration_date' => $request->expiration_date,
             'filled' => false,
         ]);
-        
-    Mail::to(auth()->user()->email)->send(new TaskCreated($task));
 
-    
-    return redirect()->route('tasks.index')->with('success', 'Tarea creada exitosamente.');
-    exit();
+        Mail::to(auth()->user()->email)->send(new TaskCreated($task));
+
+
+        return redirect()->route('tasks.index')->with('success', 'Tarea creada exitosamente.');
+        exit();
     }
 
     public function completedTasks()

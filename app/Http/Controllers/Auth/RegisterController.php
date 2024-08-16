@@ -73,6 +73,6 @@ class RegisterController extends Controller
 
     protected function redirectTo()
     {
-        return '/tasks'; // Ruta a la vista index de tareas
+        return '/tasks';
     }
 }

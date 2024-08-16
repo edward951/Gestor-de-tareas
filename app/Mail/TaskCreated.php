@@ -9,7 +9,7 @@ use Illuminate\Queue\SerializesModels;
 class TaskCreated extends Mailable
 {
     use Queueable, SerializesModels;
-    
+
 
     public $task;
     /**
@@ -20,7 +20,6 @@ class TaskCreated extends Mailable
     public function __construct($task)
     {
         $this->task = $task;
-        
     }
 
     /**
@@ -33,14 +32,14 @@ class TaskCreated extends Mailable
         $user = $this->task->user;
 
         if (!$user) {
-        
+
             throw new \Exception('No user associated with this task.');
         }
-          
-          return $this->subject('Nueva Tarea Creada')
-          ->from('from@example.com') 
-          ->to($user->email) 
-          ->view('emails.task_created') 
-          ->with(['task' => $this->task]);
+
+        return $this->subject('Nueva Tarea Creada')
+            ->from('from@example.com')
+            ->to($user->email)
+            ->view('emails.task_created')
+            ->with(['task' => $this->task]);
     }
 }
