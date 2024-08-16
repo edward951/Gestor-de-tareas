@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.task-checkbox {
+    accent-color: gray; /* Cambia el color del checkbox a gris */
+    width: 1.25rem;
+    height: 1.25rem;
+}
