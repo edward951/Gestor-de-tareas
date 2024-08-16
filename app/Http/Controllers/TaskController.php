@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
-use App\Notifications\TareaCreada;
-use App\Notifications\TareaCompletada;
-use Illuminate\Support\Facades\Auth;
+use App\Mail\TaskCreated;
+use App\Mail\TaskCompleted;
+use Illuminate\Support\Facades\Mail;
 
 class TaskController extends Controller
 {
@@ -45,14 +45,18 @@ class TaskController extends Controller
             'expiration_date' => 'required|date',
         ]);
 
-        auth()->user()->tasks()->create([
+        $task = auth()->user()->tasks()->create([
             'title' => $request->title,
             'description' => $request->description,
             'expiration_date' => $request->expiration_date,
             'filled' => false,
         ]);
+        
+    Mail::to(auth()->user()->email)->send(new TaskCreated($task));
 
-        return redirect()->route('tasks.index')->with('success', 'Tarea creada exitosamente.');
+    
+    return redirect()->route('tasks.index')->with('success', 'Tarea creada exitosamente.');
+    exit();
     }
 
     public function completedTasks()
@@ -68,6 +72,10 @@ class TaskController extends Controller
         if ($task) {
             $task->filled = $request->input('completed') ? 1 : 0;
             $task->save();
+
+            if ($task->filled) {
+                Mail::to($task->user->email)->send(new TaskCompleted($task));
+            }
 
             return response()->json(['success' => true]);
         }
@@ -126,12 +134,11 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-         
-    $this->authorize('delete', $task);
 
-    $task->delete();
+        $this->authorize('delete', $task);
 
-    return response()->json(['success' => true]);
+        $task->delete();
+
+        return response()->json(['success' => true]);
     }
-    
 }
