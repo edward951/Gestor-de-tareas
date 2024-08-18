@@ -79,7 +79,7 @@
             <h1>Nueva Tarea Creada</h1>
         </div>
         <div class="content">
-            <p>Hola,</p>
+            <p>Hola,  {{ $task->user->name }}</p>
             <p>Se ha creado una nueva tarea:</p>
             <div class="task-details">
                 <p><strong>Título:</strong> {{ $task->title }}</p>
@@ -95,5 +95,5 @@
             <p>Gracias por usar nuestra aplicación.</p>
         </div>
         <div class="footer">
-            <p>&copy; {{ date('Y') }} Tu Aplicación. Todos los derechos reservados.</p>
+            <p>&copy; {{ date('Y') }} Gestor de Tareas Tec. Todos los derechos reservados.</p>
             </

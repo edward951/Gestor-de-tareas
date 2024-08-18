@@ -6,12 +6,12 @@
             <div class="col-md-6"> <!-- Ajusta el tamaño aquí -->
                 <div class="card">
                     <div class="card-header text-center">
-                        <!-- Ícono de imagen relacionado con tareas -->
+
                         <div class="mb-3">
                             <img src="{{ asset('images/planificacion.png') }}" alt="Task Icon" class="img-fluid"
                                 style="max-height: 100px; display: block; margin: 0 auto;">
                         </div>
-                        {{ __('Login') }}
+                        <h2 class="mb-0">Login</h2>
                     </div>
 
                     <div class="card-body">
@@ -19,7 +19,7 @@
                             @csrf
 
                             <div class="mb-3">
-                                <label for="email" class="form-label">{{ __('Email Address') }}</label>
+                                <label for="email" class="form-label">{{ __('Correo Electrónico') }}</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="bi bi-envelope"></i></span>
                                     <input id="email" type="email"
@@ -34,7 +34,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="password" class="form-label">{{ __('Password') }}</label>
+                                <label for="password" class="form-label">{{ __('Contraseña') }}</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="bi bi-lock"></i></span>
                                     <input id="password" type="password"
@@ -56,7 +56,7 @@
                                 <input class="form-check-input" type="checkbox" name="remember" id="remember"
                                     {{ old('remember') ? 'checked' : '' }}>
                                 <label class="form-check-label" for="remember">
-                                    {{ __('Remember Me') }}
+                                    {{ __('Recordar') }}
                                 </label>
                             </div>
 
@@ -67,7 +67,7 @@
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                        {{ __('¿Olvidó su contraseña?') }}
                                     </a>
                                 @endif
                             </div>

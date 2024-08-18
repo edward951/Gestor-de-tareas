@@ -79,7 +79,7 @@
             <h1>Tarea Completada</h1>
         </div>
         <div class="content">
-            <p>Hola,</p>
+            <p>Hola, {{ $task->user['name']}}</p>
             <p>La tarea con el título <strong>{{ $taskTitle }}</strong> ha sido completada.</p>
             <div class="task-details">
                 <p><strong>Descripción:</strong> {{ $taskDescription }}</p>
@@ -88,7 +88,7 @@
             <p>Gracias por usar nuestra aplicación.</p>
         </div>
         <div class="footer">
-            <p>&copy; {{ date('Y') }} Tu Aplicación. Todos los derechos reservados.</p>
+            <p>&copy; {{ date('Y') }} Gestor de Tareas Tec. Todos los derechos reservados.</p>
         </div>
     </div>
 </body>
